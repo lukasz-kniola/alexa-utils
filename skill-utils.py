@@ -188,27 +188,3 @@ class Response():
 
 def setup(event):
     return Request(event), Response(event)
-
-
-
-with open('test\\openSkill.json') as json_data:
-    event = json.load(json_data)
-
-req, res = setup(event)
-
-
-res = (res
-    .txt_set("Jeden ")
-    .txt_add("Dwa ")
-)
-(res
-.rpt_set("Trzy ")
-.rpt_add("Cztery ")
-.end_set(True)
-)
-
-print(req)
-print("=============\n")
-
-
-print(res.build())
