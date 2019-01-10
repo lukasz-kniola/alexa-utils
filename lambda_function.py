@@ -32,13 +32,3 @@ s.addHandler(LaunchRequestHandler())
 s.addHandler(CheckLetterHandler())
 s.addHandler(CatchAllHandler())
 lambda_handler = s.lambda_handler()
-
-print(lambda_handler(event,""))
-
-
-
-
-
-
-
-
