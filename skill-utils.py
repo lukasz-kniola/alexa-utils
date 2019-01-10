@@ -186,5 +186,25 @@ class Response():
 
         return '<voice name="' + voices[locale] + '"><lang xml:lang="' + locale + '">' + txt + '</lang></voice>'
 
-def setup(event):
-    return Request(event), Response(event)
+
+class Skill():
+    def __init__(self):
+        self.handlers=[]
+        self.req, self.res = self.setup()
+
+    def setup(self):
+        global event
+        return Request(event), Response(event)
+
+    def addHandler(self,handler):
+        self.handlers.append(handler)
+    
+    def lambda_handler(self):
+        def wrapper(event, context):
+            for s in self.handlers:
+                print(s.__class__.__name__ + ": " + str(s.can_handle(self.req)))
+                if (s.can_handle(self.req)):
+                    return s.handle(self.req, self.res)
+        return wrapper
+
+
