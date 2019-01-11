@@ -1,7 +1,12 @@
+'''
+Example Lambda Skill Handler
+by Lukasz Kniola
+'''
+
 from skill-utils import Request, Response, Skill
 
 class LaunchRequestHandler():
-    """Handler for Session Launched."""
+    """Handler for Session Launched"""
     def can_handle(self, req):
         return req.isType("LaunchRequest")
 
@@ -19,7 +24,7 @@ class CheckLetterHandler():
         return res.build()
 
 class CatchAllHandler():
-    """Catch-all exception handler, respond with custom message."""
+    """Catch-all exception handler, respond with custom message"""
     def can_handle(self, req):
         return True
 
