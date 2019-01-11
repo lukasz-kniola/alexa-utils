@@ -1,5 +1,4 @@
-# alexa-utils
-#
-# by Lukasz Kniola
+# ALEXA-UTILS
+by Lukasz Kniola
 
 Simplified Alexa Skill request/response handler
