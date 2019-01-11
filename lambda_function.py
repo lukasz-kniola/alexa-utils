@@ -36,4 +36,5 @@ s = Skill()
 s.addHandler(LaunchRequestHandler())
 s.addHandler(CheckLetterHandler())
 s.addHandler(CatchAllHandler())
+
 lambda_handler = s.lambda_handler()
