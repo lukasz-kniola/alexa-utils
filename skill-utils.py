@@ -73,12 +73,11 @@ class Request():
         self.slots = Map()
         slots = resolve(event,['request'],['intent'],['slots'])
         if isinstance(slots, dict):
-            print("SLOTS:")
             for k,v in slots.items():
                 self.slots[k] = Slot(v)
-            print(self.slots)
+            print("SLOTS = " + str(self.slots))
         else:
-            print("No SLOTS present.")
+            print("SLOTS = {}")
 
     def __repr__(self):
         r = ""
@@ -103,7 +102,6 @@ class Request():
         return self.intent == intent
 
 class Response():
-
     def __init__(self,event):
         self.uid = event['session']['user']['userId']
         self.loc = event['request']['locale']
@@ -145,8 +143,7 @@ class Response():
         except:
             pass
         
-        print("ATTRIBUTES:")
-        print(self.att)
+        print("ATTRIBUTES = " + str(self.att))
         return self
 
     def att_set(self, k, v):
@@ -206,5 +203,3 @@ class Skill():
                 if (s.can_handle(self.req)):
                     return s.handle(self.req, self.res)
         return wrapper
-
-
